@@ -1,0 +1,2 @@
+../Src/LedFunctions.c:27:15:turnOnBlueLED	4	static
+../Src/LedFunctions.c:42:15:turnOffBlueLED	4	static
