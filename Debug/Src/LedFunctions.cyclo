@@ -1,2 +1,3 @@
-../Src/LedFunctions.c:27:15:turnOnBlueLED	1
-../Src/LedFunctions.c:42:15:turnOffBlueLED	1
+../Src/LedFunctions.c:27:7:LedInit	1
+../Src/LedFunctions.c:38:6:turnOnBlueLED	1
+../Src/LedFunctions.c:46:6:turnOffBlueLED	1

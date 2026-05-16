@@ -1,0 +1,4 @@
+../Src/UARTSender.c:12:13:UART4_SendChar	16	static
+../Src/UARTSender.c:21:13:UART4_SendString	16	static
+../Src/UARTSender.c:30:6:sendLedOn	8	static
+../Src/UARTSender.c:35:6:sendLedOff	8	static

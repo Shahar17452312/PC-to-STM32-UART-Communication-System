@@ -1,0 +1,4 @@
+../Src/UARTSender.c:12:13:UART4_SendChar	2
+../Src/UARTSender.c:21:13:UART4_SendString	2
+../Src/UARTSender.c:30:6:sendLedOn	1
+../Src/UARTSender.c:35:6:sendLedOff	1

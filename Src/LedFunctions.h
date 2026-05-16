@@ -8,7 +8,8 @@
 #ifndef LEDFUNCTIONS_H_
 #define LEDFUNCTIONS_H_
 
-void volatile turnOnBlueLED();
-void volatile turnOffBlueLED();
+void turnOnBlueLED();
+void turnOffBlueLED();
+void LedInit();
 
 #endif /* LEDFUNCTIONS_H_ */

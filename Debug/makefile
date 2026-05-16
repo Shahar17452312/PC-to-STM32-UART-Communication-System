@@ -59,8 +59,8 @@ all: main-build
 main-build: UART\ LED\ PROJECT.elf secondary-outputs
 
 # Tool invocations
-UART\ LED\ PROJECT.elf UART\ LED\ PROJECT.map: $(OBJS) $(USER_OBJS) C:\Users\shahar\Desktop\projects\UART\ LED\ PROJECT\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "UART LED PROJECT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\shahar\Desktop\projects\UART LED PROJECT\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART LED PROJECT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+UART\ LED\ PROJECT.elf UART\ LED\ PROJECT.map: $(OBJS) $(USER_OBJS) C:\Users\shahar\OneDrive\Desktop\projects\UART\ LED\ PROJECT\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "UART LED PROJECT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\shahar\OneDrive\Desktop\projects\UART LED PROJECT\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART LED PROJECT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

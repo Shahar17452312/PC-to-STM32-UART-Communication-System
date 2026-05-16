@@ -19,6 +19,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "LedFunctions.h"
+#include "UARTSender.h"
 
 #define RCC_ADRESS 0x40023800
 #define UART_4_ADRESS 0x40004C00
@@ -31,6 +32,8 @@ volatile uint32_t *const UART4_DR=(uint32_t *)(UART_4_ADRESS+0x04);
 
 int main(void)
 {
+	LedInit();
+
 	volatile uint32_t *const RCC_AHB1ENR=(uint32_t *)(RCC_ADRESS+0x30);
 	volatile uint32_t *const GPIOA_MODER=(uint32_t*) (GPIOA_ADRESS+0x00);
 	volatile uint32_t *const GPIOA_AFRL=(uint32_t*) (GPIOA_ADRESS+0x20);
@@ -38,7 +41,6 @@ int main(void)
 	volatile uint32_t *const UART4_BRR=(uint32_t *)(UART_4_ADRESS+ 0x08);
 	volatile uint32_t *const UART4_CR1=(uint32_t *)(UART_4_ADRESS+ 0x0C);
 	volatile uint32_t *const NVIC_ISER1=(uint32_t *)(0xE000E100+0x4);
-
 
 
 	*RCC_AHB1ENR|=0x1;//clock for GPIOA
@@ -80,9 +82,12 @@ void UART4_IRQHandler(void)
 		buffer[i]='\0';
 		if(!strcmp(buffer,"LED ON")){
 			turnOnBlueLED();
+			sendLedOn();
+
 		}
-		if(!strcmp(buffer,"LED OFF")){
+		else if(!strcmp(buffer,"LED OFF")){
 			turnOffBlueLED();
+			sendLedOff();
 		}
 		buffer[0]='\0';
 		i=0;
