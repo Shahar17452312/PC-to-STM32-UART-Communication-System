@@ -4,7 +4,7 @@
 
 This project implements a bidirectional UART communication system between a PC and an STM32F407 microcontroller using a CP2102 USB-to-UART bridge.
 
-The system allows a user to send textual commands from a serial terminal (PuTTY) and receive real-time responses from the microcontroller.
+The system allows a user to send textual commands from a serial terminal (PuTTY), process them on the microcontroller, control an LED, and receive real-time status responses back from the STM32.
 
 ---
 
@@ -14,6 +14,8 @@ The system allows a user to send textual commands from a serial terminal (PuTTY)
 * Real-time data exchange between PC and microcontroller
 * Command-based interface
 * LED control via serial commands
+* Status response sent back to PuTTY after each valid command
+* Proper terminal line formatting using CRLF (`\r\n`)
 * Modular and scalable code structure
 
 ---
@@ -46,6 +48,7 @@ The system allows a user to send textual commands from a serial terminal (PuTTY)
 * Stop Bits: 1
 * Parity: None
 * Alternate Function: **AF8**
+* Terminal line ending: **CRLF (`\r\n`)**
 
 ---
 
@@ -66,58 +69,18 @@ The system allows a user to send textual commands from a serial terminal (PuTTY)
    * Serial
    * COM Port (e.g., COM4)
    * Baud Rate: 115200
+   * Data Bits: 8
+   * Stop Bits: 1
+   * Parity: None
+   * Flow Control: None
 5. Click **Open**
 6. Start sending commands
+7. Press **Enter** to complete a command and trigger the STM32 response
 
 ---
 
 ## 📡 Example Commands
 
 ```text
-LED_ON
-LED_OFF
-STATUS
-```
-
-### Example Response
-
-```text
-OK
 LED ON
-System Ready
-```
-
----
-
-## 🧠 Implementation Details
-
-* UART communication implemented using HAL drivers
-* Blocking receive/transmit functions
-* Simple command parser for string comparison
-* Real-time interaction via serial terminal
-
----
-
-## 📈 What I Learned
-
-* UART protocol and serial communication
-* STM32 peripheral configuration (UART, GPIO, AF)
-* Embedded C programming
-* Hardware-software integration
-* Debugging using serial tools
-
----
-
-## 🔮 Future Improvements
-
-* Interrupt-based UART (non-blocking)
-* DMA support
-* Advanced command parser
-* Sensor integration (e.g., temperature sensor)
-* Error handling and validation
-
----
-
-## 📬 Author
-
-Shahar Naim
+LED OFF
